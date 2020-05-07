@@ -48,7 +48,7 @@ async def download_all_options(options):
         return [(time_period, await f) for time_period, f in tqdm(tasks)]
 
 
-def download_reports():
+def main():
     # Download and parse the page
     response = requests.get(
         ROOT + '/data-center/student/application-volume/fafsa-school-state')
@@ -60,4 +60,4 @@ def download_reports():
 
 
 if __name__ == '__main__':
-    print('Downloaded files:', download_reports())
+    print('Downloaded files:', main())
