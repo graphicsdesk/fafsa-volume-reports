@@ -41,7 +41,7 @@ async def download_all_options(options):
     '''
     async with ClientSession() as client:
         tasks = []
-        for option in options[:2]:
+        for option in options[:10]:
             url = ROOT + option['value']
             time_period = option.text.replace(',', '')  # Standardizes format
             tasks.append((time_period, download_file(client, url)))
@@ -60,4 +60,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    print('Downloaded files:', main())
