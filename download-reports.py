@@ -41,9 +41,9 @@ async def download_all_options(options):
     '''
     async with ClientSession() as client:
         tasks = []
-        for option in options[:10]:
+        for option in options:
             url = ROOT + option['value']
-            time_period = option.text.replace(',', '')  # Standardizes format
+            time_period = option.text.replace(',', '')  # Standardize format
             tasks.append((time_period, download_file(client, url)))
         return [(time_period, await f) for time_period, f in tqdm(tasks)]
 
